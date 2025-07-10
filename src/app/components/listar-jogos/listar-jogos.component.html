@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Meus Jogos</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Gênero</th>
+        <th>Plataforma</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jogo of jogos">
+        <td>{{ jogo.name }}</td>
+        <td>{{ jogo.genre }}</td>
+        <td>{{ jogo.platform }}</td>
+        <td>{{ jogo.status }}</td>
+        <td>
+          <button class="btn btn-info btn-sm me-1" (click)="visualizarJogo(jogo.id!)">Ver</button>
+          <button class="btn btn-warning btn-sm me-1" (click)="atualizarJogo(jogo.id!)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="excluirJogo(jogo.id!)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a routerLink="/adicionar-jogo" class="btn btn-success mt-3">Adicionar Novo Jogo</a>
+</div>
