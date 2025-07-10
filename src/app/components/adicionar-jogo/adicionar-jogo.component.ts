@@ -31,6 +31,11 @@ export class AdicionarJogoComponent implements OnInit {
     });
   }
 
+  isCampoValido(inputName: string): boolean {
+    const campo: any = this.jogoForm.get(inputName);
+    return campo && campo.touched && campo.invalid;
+  }
+
   async onSubmit() {
     if (this.jogoForm.invalid) return;
 

@@ -8,9 +8,8 @@
         id="name"
         class="form-control"
         formControlName="name"
-        [class.is-invalid]="jogoForm.get('name')?.invalid && jogoForm.get('name')?.touched"
       />
-      <div *ngIf="jogoForm.get('name')?.invalid && jogoForm.get('name')?.touched" class="text-danger">
+      <div *ngIf="isCampoValido('name')" class="text-danger">
         Nome é obrigatório.
       </div>
     </div>
@@ -21,14 +20,13 @@
         id="status"
         class="form-control"
         formControlName="status"
-        [class.is-invalid]="jogoForm.get('status')?.invalid && jogoForm.get('status')?.touched"
       >
         <option value="">Selecione...</option>
         <option value="Jogando">Jogando</option>
         <option value="Concluído">Concluído</option>
         <option value="Pausado">Pausado</option>
       </select>
-      <div *ngIf="jogoForm.get('status')?.invalid && jogoForm.get('status')?.touched" class="text-danger">
+      <div *ngIf="isCampoValido('status')" class="text-danger">
         Status é obrigatório.
       </div>
     </div>
@@ -45,9 +43,8 @@
         id="releaseDate"
         class="form-control"
         formControlName="releaseDate"
-        [class.is-invalid]="jogoForm.get('releaseDate')?.invalid && jogoForm.get('releaseDate')?.touched"
       />
-      <div *ngIf="jogoForm.get('releaseDate')?.invalid && jogoForm.get('releaseDate')?.touched" class="text-danger">
+      <div *ngIf="isCampoValido('releaseDate')" class="text-danger">
         Data de lançamento é obrigatória.
       </div>
     </div>
@@ -58,9 +55,8 @@
         id="platform"
         class="form-control"
         formControlName="platform"
-        [class.is-invalid]="jogoForm.get('platform')?.invalid && jogoForm.get('platform')?.touched"
       />
-      <div *ngIf="jogoForm.get('platform')?.invalid && jogoForm.get('platform')?.touched" class="text-danger">
+      <div *ngIf="isCampoValido('platform')" class="text-danger">
         Plataforma é obrigatória.
       </div>
     </div>
@@ -71,9 +67,8 @@
         id="genre"
         class="form-control"
         formControlName="genre"
-        [class.is-invalid]="jogoForm.get('genre')?.invalid && jogoForm.get('genre')?.touched"
       />
-      <div *ngIf="jogoForm.get('genre')?.invalid && jogoForm.get('genre')?.touched" class="text-danger">
+      <div *ngIf="isCampoValido('genre')" class="text-danger">
         Gênero é obrigatório.
       </div>
     </div>
@@ -88,6 +83,6 @@
       <input type="number" id="hoursPlayed" class="form-control" formControlName="hoursPlayed" />
     </div>
 
-    <button type="submit" class="btn btn-success" [disabled]="jogoForm.invalid">Adicionar Jogo</button>
+    <button type="submit" class="btn btn-success" >Adicionar Jogo</button>
   </form>
 </div>

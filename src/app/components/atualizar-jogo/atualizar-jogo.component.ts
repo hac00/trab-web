@@ -26,7 +26,7 @@ export class AtualizarJogoComponent implements OnInit {
     const jogo = await this.gameService.getGameById(this.jogoId);
 
     if (!jogo) {
-      alert('Jogo não encontrado');
+      Swal.fire("Erro!", "Jogo não encontrado.", "error");
       this.router.navigate(['/listar-jogos']);
       return;
     }

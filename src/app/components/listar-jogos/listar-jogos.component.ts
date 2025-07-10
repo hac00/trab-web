@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ListarJogosComponent implements OnInit {
 
-  jogos: Game[] = [];  // <- precisa ter isso aqui!
+  jogos: Game[] = [];
 
   constructor(private gameService: GameService, private router: Router) {}
 
@@ -37,7 +37,7 @@ export class ListarJogosComponent implements OnInit {
     try {
       await this.gameService.deleteGame(id);
       Swal.fire("Sucesso!", "Jogo excluído com sucesso!", "success");
-      this.jogos = await this.gameService.getGames();  // atualiza a lista
+      this.jogos = await this.gameService.getGames();
     } catch (error) {
       console.error('Erro ao excluir jogo:', error);
       Swal.fire("Erro!", "Não foi possível excluir o jogo. Tente novamente.", "error");
