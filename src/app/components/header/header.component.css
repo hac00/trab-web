@@ -1,3 +1,11 @@
-a.active {
-  font-weight: bold;
+.navbar-brand{
+  font-size: 1.5rem;
+}
+
+.input-group{
+  max-width: 200px;
+}
+
+.badge{
+  font-size: 0.6rem;
 }
