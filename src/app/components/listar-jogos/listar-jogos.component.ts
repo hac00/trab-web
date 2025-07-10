@@ -31,9 +31,17 @@ export class ListarJogosComponent implements OnInit {
   }
 
   async excluirJogo(id: number) {
-    if (confirm('Tem certeza que deseja excluir este jogo?')) {
+  const confirmar = confirm('Tem certeza que deseja excluir este jogo?');
+  if (confirmar) {
+    try {
       await this.gameService.deleteGame(id);
-      this.carregarJogos();
+      alert('Jogo excluído com sucesso!');
+      this.jogos = await this.gameService.getGames();  // atualiza a lista
+    } catch (error) {
+      console.error('Erro ao excluir jogo:', error);
+      alert('Erro ao excluir o jogo. Tente novamente.');
     }
   }
+  }
+
 }

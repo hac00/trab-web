@@ -1,1 +1,16 @@
-<p>visualizar-jogo works!</p>
+<div class="container mt-5" *ngIf="jogo">
+  <h2>{{ jogo.name }}</h2>
+  
+  <img *ngIf="jogo.imageUrl" [src]="jogo.imageUrl" alt="{{ jogo.name }}" class="img-fluid mb-3" style="max-height: 300px;">
+  
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Status:</strong> {{ jogo.status }}</li>
+    <li class="list-group-item"><strong>Comentários:</strong> {{ jogo.comments }}</li>
+    <li class="list-group-item"><strong>Data de Lançamento:</strong> {{ jogo.releaseDate | date:'dd/MM/yyyy' }}</li>
+    <li class="list-group-item"><strong>Plataforma:</strong> {{ jogo.platform }}</li>
+    <li class="list-group-item"><strong>Gênero:</strong> {{ jogo.genre }}</li>
+    <li class="list-group-item"><strong>Horas Jogadas:</strong> {{ jogo.hoursPlayed ?? 'Não informado' }}</li>
+  </ul>
+
+  <button class="btn btn-secondary mt-3" routerLink="/listar-jogos">Voltar</button>
+</div>

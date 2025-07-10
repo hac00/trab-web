@@ -25,6 +25,10 @@ export class GameService extends Dexie{
     return await this.games.toArray();
   }
 
+  async getGameById(id: number): Promise<Game | undefined> {
+    return await this.games.get(id);
+  }
+
   async updateGame(id: number, game: Game): Promise<number> {
     return await this.games.update(id, game);
   }
