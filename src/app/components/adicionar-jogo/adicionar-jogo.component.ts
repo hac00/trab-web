@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GameService } from '../../services/game.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-adicionar-jogo',
@@ -35,7 +36,7 @@ export class AdicionarJogoComponent implements OnInit {
 
     try {
       await this.gameService.addGame(this.jogoForm.value);
-      alert('Jogo adicionado com sucesso!');
+      Swal.fire("Sucesso!", "Jogo adicionado com sucesso!", "success");
       this.jogoForm.reset({
         name: '',
         status: '',
@@ -49,7 +50,7 @@ export class AdicionarJogoComponent implements OnInit {
       this.router.navigate(['/listar-jogos']);
     } catch (error) {
       console.error('Erro ao adicionar jogo:', error);
-      alert('Ocorreu um erro ao adicionar o jogo. Por favor, tente novamente.');
+      Swal.fire("Erro!", "Não foi possível adicionar o jogo. Tente novamente.", "error");
     }
   }
 }

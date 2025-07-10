@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/app/services/game.service';
 import { Game } from 'src/app/models/game';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listar-jogos',
@@ -35,11 +36,11 @@ export class ListarJogosComponent implements OnInit {
   if (confirmar) {
     try {
       await this.gameService.deleteGame(id);
-      alert('Jogo excluído com sucesso!');
+      Swal.fire("Sucesso!", "Jogo excluído com sucesso!", "success");
       this.jogos = await this.gameService.getGames();  // atualiza a lista
     } catch (error) {
       console.error('Erro ao excluir jogo:', error);
-      alert('Erro ao excluir o jogo. Tente novamente.');
+      Swal.fire("Erro!", "Não foi possível excluir o jogo. Tente novamente.", "error");
     }
   }
   }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from '../../services/game.service';
-import { Game } from '../../models/game';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-atualizar-jogo',
@@ -53,11 +53,11 @@ export class AtualizarJogoComponent implements OnInit {
 
     try {
       await this.gameService.updateGame(this.jogoId, this.jogoForm.value);
-      alert('Jogo atualizado com sucesso!');
+      Swal.fire("Sucesso!", "Jogo atualizado com sucesso!", "success");
       this.router.navigate(['/listar-jogos']);
     } catch (error) {
       console.error('Erro ao atualizar jogo:', error);
-      alert('Erro ao atualizar o jogo. Tente novamente.');
+      Swal.fire("Erro!", "Não foi possível atualizar o jogo. Tente novamente.", "error");
     }
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from '../../services/game.service';
 import { Game } from '../../models/game';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-visualizar-jogo',
@@ -23,7 +24,7 @@ export class VisualizarJogoComponent implements OnInit {
     this.jogo = await this.gameService.getGameById(id);
 
     if (!this.jogo) {
-      alert('Jogo não encontrado');
+      Swal.fire("Erro!", "Jogo não encontrado.", "error");
       this.router.navigate(['/listar-jogos']);
     }
   }
